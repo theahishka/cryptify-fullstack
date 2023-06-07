@@ -1,0 +1,163 @@
+.why-wrapper {
+    position: relative;
+    margin-bottom: 100px;
+
+    .title {
+        color: white;
+        text-align: start;
+        font-size: 24px;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+
+        .gradient-text {
+            background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            opacity: 1;
+        }
+    }
+
+    .hr {
+        margin-left: 20px;
+        height: 5px;
+        outline: 0;
+        border: 0;
+        background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+        width: 20%;
+        border-radius: 10px;
+        margin-bottom: 32px;
+    }
+
+    .text {
+        position: relative;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-size: 16px;
+        opacity: 0.65;
+        color: white;
+        text-align: start;
+        margin-bottom: 32px;
+
+        .background-filler-4 {
+            display: block;
+            width: 370px;
+            height: 370px;
+            background: #31C3FF;
+            opacity: 0.5;
+            filter: blur(200px);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            transform: translate3d(-50%, 50%, 0);
+        }
+    }
+
+    .reasons-wrapper {
+        padding-left: 20px;
+        padding-right: 20px;
+        display: grid;
+        align-content: end;
+        grid-auto-flow: column;
+        grid-auto-columns: 80%;
+        gap: 16px;
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+        height: 350px;
+    }
+
+    .reasons-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+
+    .background-filler-5-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow-x: hidden;
+        pointer-events: none;
+        transform: translateY(-50%);
+
+        .background-filler-5 {
+            width: 150px;
+            height: 150px;
+            background: #BC35FE;
+            opacity: 0.8;
+            filter: blur(90px);
+            transform: translate3d(50%, 0, 0);
+        }
+    }
+}
+
+@media only screen and (min-width: 550px) {
+    .why-wrapper {
+
+
+        .reasons-wrapper {
+            grid-auto-columns: 47%;
+        }
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .why-wrapper {
+        .title {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .hr {
+            margin-left: 100px;
+        }
+
+        .text {
+            padding-left: 100px;
+            padding-right: 100px;
+        }
+
+        .reasons-wrapper {
+            padding-left: 100px;
+            padding-right: 100px;
+            grid-auto-columns: 65%;
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .why-wrapper {
+        .title {
+            padding-left: 100px;
+            padding-right: 100px;
+            text-align: center;
+        }
+
+        .hr {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .text {
+            padding-left: 100px;
+            padding-right: 100px;
+            text-align: center;
+        }
+
+        .reasons-wrapper {
+            padding-left: 100px;
+            padding-right: 100px;
+            display: flex;
+            flex-wrap: wrap;
+            height: fit-content;
+            justify-content: space-between;
+        }
+    }
+}

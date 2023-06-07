@@ -1,0 +1,82 @@
+.rate-display {
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: linear-gradient(77.28deg, rgba(49, 195, 255, 0.1) 22.81%, rgba(188, 53, 254, 0.1) 89.89%);
+    padding: 20px;
+    margin-bottom: 10px;
+
+    .logo-graph-wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 32px;
+
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+
+            .logo-image {}
+
+            .logo-title {
+                color: white;
+                margin-left: 12px;
+            }
+
+        }
+
+        .graph-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .graph {}
+        }
+    }
+
+    .crypto-amount-fiat-amount-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .crypto-amount-crypto-symbol-wrapper {
+            display: flex;
+            align-items: center;
+
+            .crypto-amount {
+                color: white;
+            }
+
+            .crypto-symbol {
+                color: white;
+                opacity: 0.5;
+                margin-left: 10px;
+            }
+        }
+
+        .fiat-amount-fiat-symbol-wrapper {
+            display: flex;
+            align-items: center;
+
+            .fiat-symbol {
+                color: white;
+                opacity: 0.5;
+            }
+
+            .fiat-amount {
+                color: white;
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .rate-display {
+        width: 48%;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .rate-display {
+        width: 22%;
+    }
+}

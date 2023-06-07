@@ -1,0 +1,265 @@
+.footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
+    padding: 24px;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background-image: url("/assets/footer/footerBackgroundImage.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+
+    .footer-section-1-wrapper {
+        margin-bottom: 24px;
+
+        .hero-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+
+            .logo-wrapper {
+                width: 120px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 24px;
+            }
+
+            .text-wrapper {
+                text-align: center;
+                margin-bottom: 24px;
+
+                .text {
+                    font-size: 14px;
+                    color: rgb(255, 255, 255, 0.75);
+                    line-height: 22.4px;
+                }
+            }
+
+            .socials-wrapper {
+                width: 200px;
+                display: none;
+                justify-content: space-around;
+
+                .whatsapp-anchor {
+
+                    .whatsapp-icon {
+                        border-radius: 6px;
+                    }
+                }
+            }
+        }
+
+        .links-wrapper {
+            margin-top: 42px;
+
+            .links {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 22px;
+
+                .title {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: white;
+                    margin-bottom: 16px;
+
+                }
+
+                .link-component {
+                    text-decoration: none;
+                    color: rgb(255, 255, 255, 0.75);
+                    font-size: 14px;
+                    margin-bottom: 10px;
+                }
+
+                .link-component:hover {
+                    opacity: 0.5;
+                }
+            }
+        }
+
+        .subscribe-us-wrapper {
+
+            .title {
+                font-size: 20px;
+                font-weight: 500;
+                color: white;
+                margin-bottom: 16px;
+            }
+
+            .text {
+                font-size: 14px;
+                color: rgb(255, 255, 255, 0.75);
+                line-height: 22.4px;
+                margin-bottom: 16px;
+            }
+
+            .input-box-wrapper {
+
+                display: flex;
+                align-items: center;
+
+                .input-box {
+                    height: 46px;
+                    width: calc(100% - 46px);
+                    font-size: 14px;
+                    padding-left: 20px;
+                    border-radius: 8px 0px 0px 8px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.16);
+                    border-left: 1px solid rgba(255, 255, 255, 0.16);
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+                    border-right: 0;
+                    color: #B9B8BB;
+                    background-color: #1E1E1E;
+                }
+
+                .input-box:focus {
+                    outline: 0;
+                }
+
+                .button {
+                    height: 46px;
+                    width: 46px;
+                    border-radius: 0px 8px 8px 0px;
+                    border-top: 1px solid rgba(255, 255, 255, 0.16);
+                    border-right: 1px solid #BA37FE;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+                    border-left: 0;
+                    background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+                    box-shadow: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    .subscribe-us-icon {}
+                }
+
+                .button:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .socials-wrapper-mobile {
+        height: 200px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: 24px;
+
+        .whatsapp-anchor {
+
+            .whatsapp-icon {
+                border-radius: 6px;
+            }
+        }
+    }
+
+    .hr {
+        height: 1px;
+        background-color: white;
+        opacity: 0.16;
+        border: none;
+    }
+
+    .copyright-wrapper {
+        text-align: center;
+        margin-top: 24px;
+
+        .text {
+            font-size: 12px;
+            color: white;
+            opacity: 0.65;
+        }
+    }
+
+    .background-filler-8-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow-x: hidden;
+        pointer-events: none;
+        transform: translateY(-50%);
+
+        .background-filler-8 {
+            width: 150px;
+            height: 150px;
+            background: #BC35FE;
+            opacity: 0.8;
+            filter: blur(90px);
+            transform: translate3d(50%, 40%, 0);
+        }
+    }
+
+    .background-filler-9-wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        overflow-y: hidden;
+        pointer-events: none;
+        transform: translateY(0%);
+
+        .background-filler-9 {
+            width: 130px;
+            height: 130px;
+            background-color: #31C3FF;
+            opacity: 0.8;
+            transform: translate3d(-40%, 100%, 0);
+            filter: blur(130px);
+            border-radius: 50%;
+        }
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .footer {
+        background-image: none;
+
+        .footer-section-1-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+
+            .hero-wrapper {
+                width: 25%;
+
+                .socials-wrapper {
+                    display: flex;
+                }
+            }
+
+            .links-wrapper {
+                width: 50%;
+                min-width: 300px;
+                display: flex;
+                justify-content: space-around;
+                margin: 0;
+            }
+
+            .subscribe-us-wrapper {
+                width: 25%;
+                margin-bottom: 0px;
+            }
+        }
+
+        .socials-wrapper-mobile {
+            display: none;
+        }
+    }
+}

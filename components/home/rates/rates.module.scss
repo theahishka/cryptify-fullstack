@@ -1,0 +1,248 @@
+.rates-wrapper {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 52px;
+    position: relative;
+    background: radial-gradient(55.24% 55.24% at 50% 54.21%, rgba(0, 1, 56, 0) 0%, rgba(0, 1, 56, 0.197917) 47.51%, #050505 100%);
+    background-color: rgb(20, 20, 20);
+
+    .title-and-default-currency-wrapper {
+
+        margin-bottom: 24px;
+
+        .title-and-break-wrapper {
+            margin-bottom: 24px;
+
+
+            .title {
+                color: white;
+                text-align: center;
+                font-size: 24px;
+                margin-bottom: 10px;
+            }
+
+            .hr {
+                height: 5px;
+                outline: 0;
+                border: 0;
+                background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+                width: 20%;
+                margin-left: auto;
+                margin-right: auto;
+                border-radius: 10px;
+            }
+        }
+
+
+
+        .default-currency-wrapper {
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.05);
+            padding-left: 16px;
+            padding-right: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+
+            .input-box {
+                width: calc(100% - 150px);
+                background: rgba(255, 255, 255, 0.00);
+                outline: 0;
+                border: 0;
+                font-size: 14px;
+                color: white;
+                height: 22px;
+            }
+
+            .choose-default-currency-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 150px;
+
+
+                .flag-wrapper {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .fiat-symbol-wrapper {
+                    width: 32px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .symbol {
+                        color: white;
+                        font-size: 16px;
+                    }
+                }
+
+                .arrow-down-wrapper {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .default-currency-wrapper:hover {
+            border: 1px solid #31c5ff4c;
+        }
+    }
+
+    .rates-display-wrapper {
+        max-height: 1400px;
+        overflow: hidden;
+        margin-bottom: 24px;
+        transition: all 1s ease;
+    }
+
+    .discover-more-inactive {
+        max-height: 555px;
+    }
+
+    .arrow-down-dropped {
+        transform: rotate(180deg);
+    }
+
+    .explore-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        opacity: 0.7;
+
+        .arrow-down {
+            margin-right: 10px;
+            transition: all 1s ease;
+        }
+
+        .explore-anchor {
+            color: white;
+            font-size: 16px;
+        }
+    }
+
+    .background-filler-3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 317px;
+        height: 317px;
+        background: #31C3FF;
+        opacity: 0.4;
+        filter: blur(200px);
+        transform: translate3d(-50%, -50%, 0);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .rates-wrapper {
+        padding-left: 15%;
+        padding-right: 15%;
+        max-height: none;
+
+        .title-and-default-currency-wrapper {}
+
+    }
+}
+
+@media only screen and (min-width: 800px) {
+    .rates-wrapper {
+        padding-left: 100px;
+        padding-right: 100px;
+
+        .title-and-default-currency-wrapper {
+            display: flex;
+            justify-content: space-between;
+
+
+            .title-and-break-wrapper {
+
+
+                .title {
+                    text-align: left;
+                }
+
+                .hr {
+                    margin: 0;
+                }
+            }
+
+            .default-currency-wrapper {
+
+
+                .input-box {
+                    display: none;
+                }
+            }
+        }
+
+        .rates-display-wrapper {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .explore-wrapper {
+            display: none;
+        }
+
+        .background-filler-3 {
+            display: none;
+        }
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .rates-wrapper {
+
+
+        .title-and-default-currency-wrapper {
+
+
+            .title-and-break-wrapper {
+
+
+                .title {}
+
+                .hr {}
+            }
+
+            .default-currency-wrapper {
+
+
+                .input-box {}
+
+                .choose-default-currency-wrapper {
+
+
+                    .flag-wrapper {
+
+
+                        .flag {}
+                    }
+
+                    .fiat-symbol-wrapper {
+
+
+                        .symbol {}
+                    }
+
+                    .arrow-down-wrapper {
+
+
+                        .arrow-down {}
+                    }
+                }
+            }
+        }
+
+        .rates-display-wrapper {}
+    }
+}

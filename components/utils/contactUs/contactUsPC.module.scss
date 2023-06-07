@@ -1,0 +1,211 @@
+.contact-us-pc-wrapper {
+    position: relative;
+    margin-bottom: 100px;
+
+    .contact-us-pc-for-background-filler {
+        margin: 0 auto 10px auto;
+        padding: 1px;
+        width: calc(100% - 200px);
+        border-radius: 12px;
+        background: linear-gradient(160.56deg, #31C3FF -12.85%, rgba(88, 155, 254, 0.37) 18.32%, rgba(134, 108, 254, 0.53) 61.52%, rgba(188, 53, 254, 0.28) 123.15%);
+        position: relative;
+
+        .contact-us-pc-for-border {
+            background: #050505;
+            border-radius: 12px;
+
+            .contact-us-pc {
+                padding: 30px;
+                background: linear-gradient(99.87deg, rgba(49, 195, 255, 0.1) 42.66%, rgba(188, 53, 254, 0.1) 82.79%);
+                border-radius: 12px;
+                display: flex;
+                justify-content: space-between;
+
+
+                .details-wrapper {
+                    width: 40%;
+
+                    .title {
+                        display: inline-block;
+                        font-size: 24px;
+                        background: linear-gradient(99.87deg, #31C3FF 42.66%, #BC35FE 82.79%);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        background-clip: text;
+                        text-fill-color: transparent;
+                        margin-bottom: 10px;
+                    }
+
+                    .text {
+                        color: white;
+                        opacity: 0.75;
+                        font-size: 14px;
+                        margin-bottom: 24px;
+                    }
+
+                    .details {
+
+
+                        .contact {
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
+                            margin-bottom: 30px;
+                            cursor: pointer;
+
+                            .contact-anchor {
+                                color: white;
+                                font-size: 14px;
+                                line-height: 160%;
+                                opacity: 0.6;
+                                margin-left: 12px;
+                            }
+                        }
+
+                        :last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                .form-wrapper {
+                    width: 55%;
+
+                    .input-box {
+                        width: 100%;
+                        height: 58px;
+                        border: 1px solid rgba(255, 255, 255, 0.16);
+                        margin-bottom: 16px;
+                        border-radius: 6px;
+                        background: rgba(255, 255, 255, 0);
+                        -moz-appearance: textfield;
+                        font-size: 14px;
+                        line-height: 24px;
+                        color: white;
+                        padding-left: 16px;
+                        outline: none;
+                    }
+
+                    .input-box::-webkit-inner-spin-button,
+                    .input-box::-webkit-outer-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+
+                    .input-box:focus {
+                        border: 1px solid #31c5ff4c;
+                        background: rgba(255, 255, 255, 0);
+                    }
+
+                    .message {
+                        height: 150px;
+                        padding: 20px;
+                        font-family: "poppins";
+                        resize: none;
+                    }
+
+                    .submit {
+                        height: 58px;
+                        width: 100%;
+                        background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+                        border-radius: 8px;
+                        color: white;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 160%;
+                    }
+                }
+            }
+        }
+
+        .corner-conic-3 {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            position: absolute;
+            background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+            opacity: 0.75;
+            top: 0;
+            left: 0;
+            transform: translateX(-50%) translateY(-50%);
+            pointer-events: none;
+        }
+
+        .corner-conic-4 {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            position: absolute;
+            background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+            opacity: 0.75;
+            bottom: 0;
+            right: 0;
+            transform: translateX(50%) translateY(50%);
+            pointer-events: none;
+        }
+    }
+
+    .background-filler-10-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        overflow-x: hidden;
+        pointer-events: none;
+        transform: translateY(-50%);
+
+        .background-filler-10 {
+            width: 150px;
+            height: 150px;
+            background: #BC35FE;
+            opacity: 0.8;
+            filter: blur(90px);
+            transform: translate3d(50%, 0, 0);
+        }
+    }
+
+    .background-filler-11 {
+        display: block;
+        width: 370px;
+        height: 370px;
+        background: #31C3FF;
+        opacity: 0.5;
+        filter: blur(200px);
+        border-radius: 50%;
+        position: absolute;
+        bottom: 20%;
+        left: 0;
+        pointer-events: none;
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media only screen and (max-width: 799px) {
+    .contact-us-pc-wrapper {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .contact-us-pc-wrapper {
+        .contact-us-pc-for-background-filler {
+            .contact-us-pc-for-border {
+                .contact-us-pc {
+                    padding: 60px;
+                }
+            }
+
+            .corner-conic-4 {
+                width: 115px;
+                height: 115px;
+            }
+        }
+    }
+}
