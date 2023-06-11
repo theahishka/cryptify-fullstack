@@ -1,18 +1,21 @@
 "use client";
 
 import { useState } from "react";
-import Rate from "./rate/rate";
 import styles from "./rates.module.scss";
 import Image from "next/image";
+import Rate from "./rate/rate";
 
-async function fetchCryptoRates() {
-	const cryptoRatesData = await fetch(
-		"http://localhost:3001/api/homepageRates",
-		{ cache: "no-store" }
-	);
-	let cryptoRatesJSON = await cryptoRatesData.json();
-	return cryptoRatesJSON;
-}
+// async function fetchCryptoRates(chosenFiat) {
+// 	const cryptoRatesData = await fetch(
+// 		`http://localhost:3001/api/homepageRates?chosenFiat=${chosenFiat}`,
+// 		{ cache: "no-store" }
+// 	);
+// 	if (!cryptoRatesData) {
+// 		throw new Error("Failed to fetch Crypto Rates");
+// 	}
+// 	let cryptoRatesJSON = await cryptoRatesData.json();
+// 	return cryptoRatesJSON;
+// }
 
 export default async function Rates() {
 	const [chosenFiat, setChosenFiat] = useState("AED");
@@ -23,10 +26,11 @@ export default async function Rates() {
 		console.log(discoverMore);
 	}
 
-	const [cryptoRates, setCryptoRates] = useState(null);
+	// const fetchedCryptoRates = await fetchCryptoRates(chosenFiat);
 
-	const data = await fetchCryptoRates();
-	console.log(data);
+	// console.log(fetchedCryptoRates);
+	// const fetchedCryptoIDs = Object.keys(fetchedCryptoRates);
+	// console.log(fetchedCryptoIDs);
 
 	return (
 		<section className={styles["rates-wrapper"]}>
@@ -73,14 +77,15 @@ export default async function Rates() {
 						: styles["discover-more-active"],
 				].join(" ")}
 			>
-				<Rate crypto="BTC" fiat={chosenFiat} />
-				<Rate crypto="USDT" fiat={chosenFiat} />
-				<Rate crypto="ETH" fiat={chosenFiat} />
-				<Rate crypto="BNB" fiat={chosenFiat} />
-				<Rate crypto="BTC" fiat={chosenFiat} />
-				<Rate crypto="USDT" fiat={chosenFiat} />
-				<Rate crypto="ETH" fiat={chosenFiat} />
-				<Rate crypto="BNB" fiat={chosenFiat} />
+				{/* {fetchedCryptoIDs.map((id) => {
+					return (
+						<Rate
+							key={`coinmarketcap-${id}`}
+							crypto={fetchedCryptoRates[id]}
+							fiat={chosenFiat}
+						/>
+					);
+				})} */}
 			</div>
 			<div
 				className={styles["explore-wrapper"]}

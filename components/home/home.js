@@ -10,10 +10,10 @@ export default function HomePage() {
 		<div>
 			<HeroBanner />
 			<Rates />
-			<Why/>
-			<ContactUsForm/>
-			<ContactUsDetails/>
-			<ContactUsPC/>
+			<Why />
+			<ContactUsForm />
+			<ContactUsDetails />
+			<ContactUsPC />
 		</div>
 	);
 }

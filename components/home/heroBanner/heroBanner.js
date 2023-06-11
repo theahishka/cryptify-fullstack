@@ -1,6 +1,5 @@
 import Calculator from "@/components/utils/calculator/calculator";
 import styles from "./heroBanner.module.scss";
-import Image from "next/image";
 
 export default function HeroBanner() {
 	return (

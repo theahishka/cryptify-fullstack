@@ -33,8 +33,6 @@ function SlidingMenu({ closeMenu }) {
 	const pathname = usePathname();
 	const currentRoute = pathname;
 
-	console.log(currentRoute);
-
 	return (
 		<div className={styles["menu-wrapper"]} id={"menuWrapper"}>
 			<div className={styles["menu"]}>
