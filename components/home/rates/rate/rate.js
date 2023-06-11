@@ -1,18 +1,18 @@
 import styles from "./rate.module.scss";
 import Image from "next/image";
 
-export default function Rate({ crypto, fiat }) {
+export default function Rate() {
 	return (
 		<div className={styles["rate-display"]}>
 			<div className={styles["logo-graph-wrapper"]}>
 				<div className={styles["logo-wrapper"]}>
 					<Image
-						src={`/assets/cryptos/${crypto["symbol"]}.png`}
+						src={`/assets/cryptos/USDT.png`}
 						width={32}
 						height={32}
-						alt={crypto["symbol"]}
+						alt={"USDT"}
 					/>
-					<p className={styles["logo-title"]}>{crypto["symbol"]}</p>
+					<p className={styles["logo-title"]}>USDT</p>
 				</div>
 				<div className={styles["graph-wrapper"]}>
 					<Image
@@ -28,13 +28,13 @@ export default function Rate({ crypto, fiat }) {
 				<div className={styles["crypto-amount-crypto-symbol-wrapper"]}>
 					<p className={styles["crypto-amount"]}>1</p>
 					<p className={styles["crypto-symbol"]}>
-						{crypto["symbol"]}
+						{"USDT"}
 					</p>
 				</div>
 				<div className={styles["fiat-amount-fiat-symbol-wrapper"]}>
-					<p className={styles["fiat-symbol"]}>{fiat}</p>
+					<p className={styles["fiat-symbol"]}>AED</p>
 					<p className={styles["fiat-amount"]}>
-						{/* {crypto["quote"][fiat]["price"]} */}
+						10000
 					</p>
 				</div>
 			</div>

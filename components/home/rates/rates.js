@@ -77,6 +77,14 @@ export default async function Rates() {
 						: styles["discover-more-active"],
 				].join(" ")}
 			>
+				<Rate />
+				<Rate />
+				<Rate />
+				<Rate />
+				<Rate />
+				<Rate />
+				<Rate />
+				<Rate />
 				{/* {fetchedCryptoIDs.map((id) => {
 					return (
 						<Rate
