@@ -5,6 +5,7 @@ import SlidingMenu from "./slidingMenu";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
 
 function MobileHeader() {
 	const languages = [
@@ -75,7 +76,8 @@ function MobileHeader() {
 					/>
 				)}
 			</div>
-			{showMenu && <SlidingMenu closeMenu={closeMenu}/>}
+
+			<SlidingMenu closeMenu={closeMenu} showMenu={showMenu} />
 		</nav>
 	);
 }
