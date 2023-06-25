@@ -38,7 +38,8 @@ export default function Footer() {
 					</Link>
 					<div className={styles["text-wrapper"]}>
 						<p className={styles["text"]}>
-							Ya ebu sobak, vsegda gotov trahnut neskolko kotov.
+							Experience seamless cryptocurrency trading in Dubai
+							with our trusted OTC broker.
 						</p>
 					</div>
 					<div className={styles["socials-wrapper"]}>
@@ -145,8 +146,8 @@ export default function Footer() {
 				<div className={styles["subscribe-us-wrapper"]}>
 					<h3 className={styles["title"]}>Subscribe Us</h3>
 					<p className={styles["text"]}>
-						Sign up for our latest annoying emails. We give you our
-						word, we will spam you like there is no tomorrow.
+						Sign up for our latest emails. Always be first to know
+						about our offers and news.
 					</p>
 					<div className={styles["input-box-wrapper"]}>
 						<input

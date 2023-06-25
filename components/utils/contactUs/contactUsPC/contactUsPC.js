@@ -1,5 +1,7 @@
+import ContactUsForm from "../contactUsForm/contactUsForm";
 import styles from "./contactUsPC.module.scss";
 import Image from "next/image";
+
 
 export default function ContactUsPC() {
 	return (
@@ -15,7 +17,10 @@ export default function ContactUsPC() {
 								please fill out the form.{" "}
 							</p>
 							<div className={styles["details"]}>
-								<div className={styles["contact"]}>
+								<a
+									className={styles["contact"]}
+									href={"mailto:exchange@cryptify.info"}
+								>
 									<Image
 										className={styles["email-svg"]}
 										src="/assets/contacts/email.svg"
@@ -23,11 +28,15 @@ export default function ContactUsPC() {
 										height={32}
 										alt="email icon"
 									></Image>
-									<a className={styles["contact-anchor"]}>
+									<p className={styles["contact-anchor"]}>
 										exchange@cryptify.info
-									</a>
-								</div>
-								<div className={styles["contact"]}>
+									</p>
+								</a>
+								<a
+									className={styles["contact"]}
+									href="https://wa.me/971527536969"
+									target="_blank"
+								>
 									<Image
 										className={styles["whatsapp-svg"]}
 										src="/assets/contacts/whatsapp.svg"
@@ -35,11 +44,15 @@ export default function ContactUsPC() {
 										height={32}
 										alt="whatsapp icon"
 									></Image>
-									<a className={styles["contact-anchor"]}>
+									<p className={styles["contact-anchor"]}>
 										+971527536969
-									</a>
-								</div>
-								<div className={styles["contact"]}>
+									</p>
+								</a>
+								<a
+									className={styles["contact"]}
+									href="https://t.me/cryptifyDubai"
+									target="_blank"
+								>
 									<Image
 										className={styles["telegram-svg"]}
 										src="/assets/contacts/telegram.svg"
@@ -47,11 +60,15 @@ export default function ContactUsPC() {
 										height={32}
 										alt="telegram icon"
 									></Image>
-									<a className={styles["contact-anchor"]}>
+									<p className={styles["contact-anchor"]}>
 										@cryptifyDubai
-									</a>
-								</div>
-								<div className={styles["contact"]}>
+									</p>
+								</a>
+								<a
+									className={styles["contact"]}
+									href="https://www.instagram.com/cryptify/"
+									target="_blank"
+								>
 									<Image
 										className={styles["instagram-svg"]}
 										src="/assets/contacts/instagram.svg"
@@ -59,69 +76,22 @@ export default function ContactUsPC() {
 										height={32}
 										alt="instagram icon"
 									></Image>
-									<a className={styles["contact-anchor"]}>
+									<p className={styles["contact-anchor"]}>
 										@cryptify
-									</a>
-								</div>
+									</p>
+								</a>
 							</div>
 						</div>
-						<form className={styles["form-wrapper"]}>
-							<input
-								type="text"
-								name="full-name"
-								id="full-name"
-								placeholder="Your Name"
-								className={[
-									styles["full-name"],
-									styles["input-box"],
-								].join(" ")}
-							></input>
-							<input
-								type="email"
-								name="email"
-								id="email"
-								placeholder="Your Email"
-								className={[
-									styles["email"],
-									styles["input-box"],
-								].join(" ")}
-							></input>
-							<input
-								type="number"
-								name="mobile-number"
-								id="mobile-number"
-								placeholder="Your Phone"
-								className={[
-									styles["mobile-number"],
-									styles["input-box"],
-								].join(" ")}
-							></input>
-							<textarea
-								name="message"
-								id="message"
-								placeholder="Your Message"
-								className={[
-									styles["message"],
-									styles["input-box"],
-								].join(" ")}
-							></textarea>
-							<button
-								type="button"
-								id="submit"
-								className={styles["submit"]}
-							>
-								Submit
-							</button>
-						</form>
+						<ContactUsForm/>
 					</div>
 				</div>
 				<div className={styles["corner-conic-3"]}></div>
 				<div className={styles["corner-conic-4"]}></div>
 			</div>
-            <div className={styles["background-filler-10-wrapper"]}>
+			<div className={styles["background-filler-10-wrapper"]}>
 				<div className={styles["background-filler-10"]}></div>
 			</div>
-            <div className={styles["background-filler-11"]}></div>
+			<div className={styles["background-filler-11"]}></div>
 		</section>
 	);
 }

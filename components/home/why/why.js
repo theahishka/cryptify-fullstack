@@ -10,10 +10,10 @@ export default function Why() {
 			</h3>
 			<hr className={styles["hr"]}></hr>
 			<p className={styles["text"]}>
-				Welcome to Cryptify, we do everything on a top notch level,
-				starting from cash transactions finishing with eating pussy. We
-				guarantee 100% satisfaction. If you are not satisfied we will
-				give 100% of pussy juice back.
+				Welcome to Cryptify, we do everything on a top notch level. We
+				make sure that none of our customers are getting scammed. We
+				give competitive prices and we process transactions blazingly
+				fast. Come and check it out for yourself!
 				<span className={styles["background-filler-4"]}></span>
 			</p>
 			<div className={styles["reasons-wrapper"]}>

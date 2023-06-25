@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./rates.module.scss";
 import Image from "next/image";
+<<<<<<< HEAD
 import Rate from "./rate/rate";
 
 // async function fetchCryptoRates(chosenFiat) {
@@ -18,19 +19,28 @@ import Rate from "./rate/rate";
 // }
 
 export default async function Rates() {
+=======
+import DefaultCurrency from "./defaultCurrency/defaultCurrency";
+
+export default function Rates(props) {
+>>>>>>> temp
 	const [chosenFiat, setChosenFiat] = useState("AED");
 	const [discoverMore, setDiscoverMore] = useState(false);
 
 	function toggleDiscoverMore() {
 		discoverMore ? setDiscoverMore(false) : setDiscoverMore(true);
-		console.log(discoverMore);
 	}
 
+<<<<<<< HEAD
 	// const fetchedCryptoRates = await fetchCryptoRates(chosenFiat);
 
 	// console.log(fetchedCryptoRates);
 	// const fetchedCryptoIDs = Object.keys(fetchedCryptoRates);
 	// console.log(fetchedCryptoIDs);
+=======
+	let cryptoData = chosenFiat === "AED" ? props.dataAED : props.dataUSD;
+	console.log(cryptoData);
+>>>>>>> temp
 
 	return (
 		<section className={styles["rates-wrapper"]}>
@@ -39,44 +49,18 @@ export default async function Rates() {
 					<h3 className={styles["title"]}>Cryptocurrency Rates</h3>
 					<hr className={styles["hr"]}></hr>
 				</div>
-				<div className={styles["default-currency-wrapper"]}>
-					<input
-						className={styles["input-box"]}
-						placeholder="Target Currency"
-					></input>
-					<div className={styles["choose-default-currency-wrapper"]}>
-						<div className={styles["flag-wrapper"]}>
-							<Image
-								src="/assets/ratesFlags/UAE.svg"
-								className={styles["flag"]}
-								width={44}
-								height={44}
-								alt="country flag"
-							/>
-						</div>
-						<div className={styles["fiat-symbol-wrapper"]}>
-							<p className={styles["symbol"]}>AED</p>
-						</div>
-						<div className={styles["arrow-down-wrapper"]}>
-							<Image
-								src="/assets/ratesFlags/arrowDown.svg"
-								className={styles["arrow-down"]}
-								width={20}
-								height={20}
-								alt="arrow down"
-							/>
-						</div>
-					</div>
-				</div>
+				<DefaultCurrency
+					chosenFiat={chosenFiat}
+					setChosenFiat={setChosenFiat}
+				/>
 			</div>
 			<div
 				className={[
 					styles["rates-display-wrapper"],
-					!discoverMore
-						? styles["discover-more-inactive"]
-						: styles["discover-more-active"],
+					!discoverMore && styles["rate-display-wrapper-shortened"],
 				].join(" ")}
 			>
+<<<<<<< HEAD
 				<Rate />
 				<Rate />
 				<Rate />
@@ -94,6 +78,17 @@ export default async function Rates() {
 						/>
 					);
 				})} */}
+=======
+				{cryptoData.map((crypto) => {
+					return (
+						<Rate
+							key={`crypto-with-id-${crypto.id}`}
+							crypto={crypto}
+							chosenFiat={chosenFiat}
+						/>
+					);
+				})}
+>>>>>>> temp
 			</div>
 			<div
 				className={styles["explore-wrapper"]}
@@ -103,15 +98,13 @@ export default async function Rates() {
 					src="/assets/arrows/arrowDown.svg"
 					className={[
 						styles["arrow-down"],
-						discoverMore
-							? styles["arrow-down-dropped"]
-							: styles["arrow-down-not-dropped"],
+						discoverMore && styles["arrow-up"],
 					].join(" ")}
 					width={24}
 					height={24}
 					alt="arrow down"
 				/>
-				<a className={styles["explore-anchor"]}>Discover More</a>
+				<div className={styles["explore-button"]}>Discover More</div>
 			</div>
 			<div className={styles["background-filler-3"]}></div>
 		</section>

@@ -39,137 +39,6 @@
             line-height: 160%;
         }
 
-        .you-give-wrapper {
-            margin-bottom: 24px;
-
-            .text {
-                color: white;
-                margin-bottom: 10px;
-            }
-
-            .you-give-input-wrapper {
-                display: flex;
-
-
-                .you-give-input {
-                    height: 58px;
-                    width: calc(100% - 90px);
-                    padding-left: 16px;
-                    border-radius: 6px 0px 0px 6px;
-                    border-top: 1px solid rgba(255, 255, 255, 0.16);
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-                    border-left: 1px solid rgba(255, 255, 255, 0.16);
-                    outline: 0;
-                    background: rgba(255, 255, 255, 0.06);
-                    border-right: 0;
-                    font-size: 14px;
-                    color: white;
-                }
-
-                .logo-symbol-wrapper {
-                    height: 58px;
-                    width: 90px;
-                    border-top: 1px solid rgba(255, 255, 255, 0.16);
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-                    border-right: 1px solid rgba(255, 255, 255, 0.16);
-                    border-radius: 0px 6px 6px 0px;
-                    background: rgba(255, 255, 255, 0.12);
-                    outline: 0;
-                    cursor: pointer;
-
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .logo {
-                        height: 58px;
-                        width: 40%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
-                    }
-
-                    .symbol {
-                        width: 60%;
-                        height: 58px;
-                        color: white;
-                        font-size: 12px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-            }
-        }
-
-        .you-get-wrapper {
-            margin-bottom: 32px;
-
-            .text {
-                color: white;
-                margin-bottom: 10px;
-            }
-
-            .you-get-input-wrapper {
-                display: flex;
-
-                .you-get-input {
-                    height: 58px;
-                    width: calc(100% - 90px);
-                    padding-left: 16px;
-                    border-radius: 6px 0px 0px 6px;
-                    border-top: 1px solid rgba(255, 255, 255, 0.16);
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-                    border-left: 1px solid rgba(255, 255, 255, 0.16);
-                    outline: 0;
-                    background: rgba(255, 255, 255, 0.06);
-                    border-right: 0;
-                    font-size: 14px;
-                    color: white;
-                }
-
-                .logo-symbol-wrapper {
-                    height: 58px;
-                    width: 90px;
-                    border-top: 1px solid rgba(255, 255, 255, 0.16);
-                    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-                    border-right: 1px solid rgba(255, 255, 255, 0.16);
-                    border-radius: 0px 6px 6px 0px;
-                    background: rgba(255, 255, 255, 0.12);
-                    outline: 0;
-                    cursor: pointer;
-
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-
-                    .logo {
-                        height: 58px;
-                        width: 40%;
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
-                    }
-
-                    .symbol {
-                        width: 60%;
-                        height: 58px;
-                        color: white;
-                        font-size: 12px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                    }
-                }
-            }
-        }
-
-        .exact-rate {
-            color: white;
-            margin-bottom: 32px;
-            text-align: center;
-        }
-
         .arrange-wrapper {
             display: flex;
             justify-content: center;
@@ -184,9 +53,13 @@
                 align-items: center;
                 border-radius: 8px;
                 cursor: pointer;
+                overflow: hidden;
+                position: relative;
+                text-decoration: none;
 
                 .text {
                     color: white;
+                    pointer-events: none;
                 }
             }
         }

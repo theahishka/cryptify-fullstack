@@ -1,0 +1,99 @@
+.swap-wrapper-wrapper-wrapper {
+    position: relative;
+
+    .is-loading-wrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.swap-wrapper {
+    position: relative;
+
+    .you-give-wrapper {
+        margin-bottom: 24px;
+
+        .text {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .you-give-input-wrapper {
+            display: flex;
+
+            .you-give-input {
+                height: 58px;
+                width: calc(100% - 90px);
+                padding-left: 16px;
+                border-radius: 6px 0px 0px 6px;
+                border-top: 1px solid rgba(255, 255, 255, 0.16);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+                border-left: 1px solid rgba(255, 255, 255, 0.16);
+                outline: 0;
+                background: rgba(255, 255, 255, 0.06);
+                border-right: 0;
+                font-size: 14px;
+                color: white;
+                -moz-appearance: textfield;
+            }
+
+            .you-give-input::-webkit-inner-spin-button,
+            .you-give-input::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    }
+
+    .swap-icon-wrapper:hover {
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    .you-get-wrapper {
+        margin-bottom: 32px;
+
+        .text {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .you-get-input-wrapper {
+            display: flex;
+
+            .you-get-input {
+                height: 58px;
+                width: calc(100% - 90px);
+                padding-left: 16px;
+                border-radius: 6px 0px 0px 6px;
+                border-top: 1px solid rgba(255, 255, 255, 0.16);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+                border-left: 1px solid rgba(255, 255, 255, 0.16);
+                outline: 0;
+                background: rgba(255, 255, 255, 0.06);
+                border-right: 0;
+                font-size: 14px;
+                color: white;
+                -moz-appearance: textfield;
+            }
+
+            .you-get-input::-webkit-inner-spin-button,
+            .you-get-input::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        }
+    }
+}
+
+.swap-wrapper-wrapper-blurred {
+    filter: blur(3px);
+    pointer-events: none;
+}
+
+.exact-rate {
+    color: white;
+    margin-bottom: 32px;
+    text-align: center;
+}

@@ -1,7 +1,7 @@
 "use client";
 
 import styles from "./mobileHeader.module.scss";
-import SlidingMenu from "./slidingMenu";
+import SlidingMenu from "./slidingMenu/slidingMenu";
 import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
@@ -75,7 +75,8 @@ function MobileHeader() {
 					/>
 				)}
 			</div>
-			{showMenu && <SlidingMenu closeMenu={closeMenu}/>}
+
+			<SlidingMenu closeMenu={closeMenu} showMenu={showMenu} />
 		</nav>
 	);
 }
