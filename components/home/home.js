@@ -1,6 +1,4 @@
-import ContactUsDetails from "../utils/contactUs/contactUsDetails";
-import ContactUsForm from "../utils/contactUs/contactUsForm";
-import ContactUsPC from "../utils/contactUs/contactUsPC";
+import ContactUs from "../utils/contactUs/contactUs";
 import HeroBanner from "./heroBanner/heroBanner";
 import Rates from "./rates/rates";
 import Why from "./why/why";
@@ -30,9 +28,7 @@ export default async function HomePage() {
 				dataUSD={cryptoRates.dataUSD}
 			/> */}
 			<Why />
-			<ContactUsForm />
-			<ContactUsDetails />
-			<ContactUsPC />
+			<ContactUs />
 		</div>
 	);
 }

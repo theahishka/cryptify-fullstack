@@ -1,0 +1,100 @@
+.choose-fiat-wrapper-wrapper {
+    position: relative;
+    z-index: 10;
+
+    .choose-fiat-wrapper {
+        height: 58px;
+        width: 90px;
+        border-top: 1px solid rgba(255, 255, 255, 0.16);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 0px 6px 6px 0px;
+        background: rgb(70, 62, 78);
+        outline: 0;
+        cursor: pointer;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo {
+            height: 58px;
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            border-radius: 50%;
+
+            .logo-image {
+                border-radius: 50%;
+            }
+        }
+
+        .symbol {
+            width: 60%;
+            height: 58px;
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .choose-fiat-wrapper-list-opened {
+        border-radius: 0px 6px 0px 0px;
+    }
+
+    .choose-fiat-wrapper:hover {
+        background: rgb(46, 41, 51);
+    }
+
+    .fiat-list-wrapper {
+        position: absolute;
+        top: 100%;
+        background: rgb(70, 62, 78);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+        border-right: 1px solid rgba(255, 255, 255, 0.16);
+        border-left: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 0px 0px 6px 6px;
+        width: 90px;
+        max-height: 174px;
+        overflow: scroll;
+
+        .option-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 58px;
+
+            cursor: pointer;
+
+            .logo {
+                height: 58px;
+                width: 40%;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+
+            .symbol {
+                width: 60%;
+                height: 58px;
+                color: white;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+
+        .option-wrapper:hover {
+            background: rgb(46, 41, 51);
+        }
+    }
+
+    .fiat-list-wrapper:last-child {
+        border-radius: 0px 0px 6px 6px;
+    }
+}

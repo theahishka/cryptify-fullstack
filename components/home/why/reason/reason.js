@@ -6,32 +6,32 @@ export default function Reason({ index }) {
 		{
 			icon: "./assets/reasons/secureG.svg",
 			title: "Secure Platform",
-			text: "There are a lot of scams out there, with us you will safe.",
+			text: "There are a lot of scams out there. We have seen a lot of them. With our experience you will be safe.",
 		},
 		{
 			icon: "./assets/reasons/fastG.svg",
 			title: "Fast Transactions",
-			text: "We do everything really fast. Tars Turs is our Moto",
+			text: "We make sure that each transaction is quick. So, you won't lose time unnecessarily at our office.",
 		},
 		{
-			icon: "./assets/reasons/fastG.svg",
+			icon: "./assets/reasons/noHiddenFeesG.svg",
 			title: "No Hidden Fees",
-			text: "You only pay for sex, nothing else!",
+			text: "We are always transparent about our fees. You will never pay extra!",
 		},
 		{
-			icon: "./assets/reasons/fastG.svg",
+			icon: "./assets/reasons/easeOfUseG.svg",
 			title: "Easy of Use",
-			text: "You only pay for sex, nothing else!",
+			text: "We have developed an efficient protocol for transactions. It's so easy and fast!",
 		},
 		{
-			icon: "./assets/reasons/fastG.svg",
+			icon: "./assets/reasons/technologicalAdvancementsG.svg",
 			title: "Technological Advancements",
-			text: "You only pay for sex, nothing else!",
+			text: "Slowly, but surely, we develop new technologies in our sphere. New app is coming out soon, so stay tuned!",
 		},
 		{
-			icon: "./assets/reasons/fastG.svg",
+			icon: "./assets/reasons/strategicLocationG.svg",
 			title: "Strategic Location",
-			text: "You only pay for sex, nothing else!",
+			text: "We are located in the city center of Dubai, in Business Bay. It is easy to find us, and it is easy to find parking too.",
 		},
 	];
 	return (

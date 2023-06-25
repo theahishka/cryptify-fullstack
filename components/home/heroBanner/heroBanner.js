@@ -1,8 +1,23 @@
 import Calculator from "@/components/utils/calculator/calculator";
 import styles from "./heroBanner.module.scss";
-import Image from "next/image";
 
-export default function HeroBanner() {
+async function fetchUSDTRate(crypto) {
+	const USDTRateData = await fetch(
+		`http://localhost:3000/api/quickCalculator?crypto=${crypto}`,
+		{ cache: "no-store" }
+	);
+
+	if (!USDTRateData) {
+		throw new Error("Failed to fetch Crypto Rates");
+	}
+
+	let USDTRateJSON = await USDTRateData.json();
+
+	return USDTRateJSON;
+}
+
+export default async function HeroBanner() {
+	const USDTRate = await fetchUSDTRate("USDT");
 	return (
 		<section className={styles["hero-calculator"]}>
 			<div className={styles["hero-wrapper"]}>
@@ -41,7 +56,7 @@ export default function HeroBanner() {
 				</div>
 				<div className={styles["background-filler-1"]}></div>
 			</div>
-			<Calculator/>
+			<Calculator USDTRate={USDTRate}/>
 		</section>
 	);
 }
