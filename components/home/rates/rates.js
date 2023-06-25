@@ -3,27 +3,9 @@
 import { useState } from "react";
 import styles from "./rates.module.scss";
 import Image from "next/image";
-<<<<<<< HEAD
-import Rate from "./rate/rate";
-
-// async function fetchCryptoRates(chosenFiat) {
-// 	const cryptoRatesData = await fetch(
-// 		`http://localhost:3001/api/homepageRates?chosenFiat=${chosenFiat}`,
-// 		{ cache: "no-store" }
-// 	);
-// 	if (!cryptoRatesData) {
-// 		throw new Error("Failed to fetch Crypto Rates");
-// 	}
-// 	let cryptoRatesJSON = await cryptoRatesData.json();
-// 	return cryptoRatesJSON;
-// }
-
-export default async function Rates() {
-=======
 import DefaultCurrency from "./defaultCurrency/defaultCurrency";
 
 export default function Rates(props) {
->>>>>>> temp
 	const [chosenFiat, setChosenFiat] = useState("AED");
 	const [discoverMore, setDiscoverMore] = useState(false);
 
@@ -31,16 +13,8 @@ export default function Rates(props) {
 		discoverMore ? setDiscoverMore(false) : setDiscoverMore(true);
 	}
 
-<<<<<<< HEAD
-	// const fetchedCryptoRates = await fetchCryptoRates(chosenFiat);
-
-	// console.log(fetchedCryptoRates);
-	// const fetchedCryptoIDs = Object.keys(fetchedCryptoRates);
-	// console.log(fetchedCryptoIDs);
-=======
 	let cryptoData = chosenFiat === "AED" ? props.dataAED : props.dataUSD;
 	console.log(cryptoData);
->>>>>>> temp
 
 	return (
 		<section className={styles["rates-wrapper"]}>
@@ -60,25 +34,6 @@ export default function Rates(props) {
 					!discoverMore && styles["rate-display-wrapper-shortened"],
 				].join(" ")}
 			>
-<<<<<<< HEAD
-				<Rate />
-				<Rate />
-				<Rate />
-				<Rate />
-				<Rate />
-				<Rate />
-				<Rate />
-				<Rate />
-				{/* {fetchedCryptoIDs.map((id) => {
-					return (
-						<Rate
-							key={`coinmarketcap-${id}`}
-							crypto={fetchedCryptoRates[id]}
-							fiat={chosenFiat}
-						/>
-					);
-				})} */}
-=======
 				{cryptoData.map((crypto) => {
 					return (
 						<Rate
@@ -88,7 +43,6 @@ export default function Rates(props) {
 						/>
 					);
 				})}
->>>>>>> temp
 			</div>
 			<div
 				className={styles["explore-wrapper"]}
