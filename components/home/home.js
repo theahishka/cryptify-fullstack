@@ -19,14 +19,14 @@ async function fetchCryptoRates() {
 }
 
 export default async function HomePage() {
-	// const cryptoRates = await fetchCryptoRates();
+	const cryptoRates = await fetchCryptoRates();
 	return (
 		<div>
 			<HeroBanner />
-			{/* <Rates
+			<Rates
 				dataAED={cryptoRates.dataAED}
 				dataUSD={cryptoRates.dataUSD}
-			/> */}
+			/>
 			<Why />
 			<ContactUs />
 		</div>
