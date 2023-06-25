@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./rates.module.scss";
 import Image from "next/image";
 import DefaultCurrency from "./defaultCurrency/defaultCurrency";
+import Rate from "./rate/rate";
 
 export default function Rates(props) {
 	const [chosenFiat, setChosenFiat] = useState("AED");
