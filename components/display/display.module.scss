@@ -1,0 +1,110 @@
+.display-wrapper {
+    width: 100%;
+    height: 100vh;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    background: radial-gradient(55.24% 55.24% at 50% 54.21%, rgba(0, 1, 56, 0) 0%, rgba(0, 1, 56, 0.197917) 47.51%, #050505 100%);
+
+    .logo-wrapper {
+        height: 100%;
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .cryptify-logo {
+
+        }
+
+        .cryptify-title {
+            margin-top: 10px;
+        }
+    }
+
+    .rates-wrapper {
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        .rate-wrapper {
+            background-color: red;
+            padding: 10px;
+            border-radius: 10px;
+            background: linear-gradient(77.28deg, rgba(49, 195, 255, 0.1) 22.81%, rgba(188, 53, 254, 0.1) 89.89%);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            height: 200px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .logo-symbol-wrapper {
+                height: 100%;
+                width: 33%;
+                border-radius: 10px 0px 0px 10px;
+                padding: 24px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+
+                .logo {}
+
+                .symbol {
+                    color: white;
+                    font-size: 24px;
+                    margin-left: 10px;
+                }
+            }
+
+            .we-buy-wrapper {
+                // background-color: rgba(0, 250, 0, 0.1);
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+                width: 33%;
+                padding: 24px;
+
+                .title {
+                    color: white;
+                    font-size: 16px;
+
+                }
+
+                .text {
+                    color: white;
+                    font-size: 24px;
+                }
+            }
+
+            .we-sell-wrapper {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                flex-direction: column;
+                height: 100%;
+                width: 33%;
+                padding: 24px;
+
+                .title {
+                    color: white;
+                    font-size: 16px;
+                }
+
+                .text {
+                    color: white;
+                    font-size: 24px;
+                }
+            }
+
+        }
+    }
+}

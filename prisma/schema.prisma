@@ -1,0 +1,27 @@
+generator provider {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+model CryptoSpreads {
+    cryptoId  Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    symbol    String @unique
+    type      String
+    buy       Float
+    sell      Float
+}
+
+model FiatRates {
+    fiatId    Int      @id @default(autoincrement())
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+    symbol    String @unique
+    buy       Float
+    sell      Float
+}
