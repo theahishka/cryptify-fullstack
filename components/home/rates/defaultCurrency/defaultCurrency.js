@@ -8,7 +8,6 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function DefaultCurrency(props) {
 	const [chooseFiat, setChooseFiat] = useState(false);
 	let chosenFlag = props.chosenFiat === "AED" ? "UAE" : "USA";
-	console.log(chosenFlag);
 
 	function toggleChooseFiat() {
 		chooseFiat ? setChooseFiat(false) : setChooseFiat(true);

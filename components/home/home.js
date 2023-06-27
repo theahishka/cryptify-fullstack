@@ -4,8 +4,8 @@ import Rates from "./rates/rates";
 import Why from "./why/why";
 
 async function fetchCryptoRates() {
-	const origin = process.env.ORIGIN;
-	const cryptoRatesData = await fetch(`${origin}/api/homepageRates`, {
+	const API_ORIGIN = process.env.API_ORIGIN;
+	const cryptoRatesData = await fetch(`${API_ORIGIN}/api/homepageRates`, {
 		cache: "no-store",
 	});
 

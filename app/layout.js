@@ -1,7 +1,6 @@
 import Footer from "@/components/layout/footer/footer";
 import "./globals.scss";
 import Script from "next/script";
-import ReactQueryProvider from "./reactQueryProvider";
 import Header from "@/components/layout/header/header";
 
 export const metadata = {
@@ -12,15 +11,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 	return (
-		<ReactQueryProvider>
-			<html lang="en">
-				<body>
-					<Header />
-					{children}
-					<Footer />
-				</body>
-				<Script src="https://smtpjs.com/v3/smtp.js"></Script>
-			</html>
-		</ReactQueryProvider>
+		<html lang="en">
+			<body>
+				<Header />
+				{children}
+				<Footer />
+			</body>
+			<Script src="https://smtpjs.com/v3/smtp.js"></Script>
+		</html>
 	);
 }

@@ -5,7 +5,6 @@ import Image from "next/image";
 
 export default function Rate(props) {
 	let fiatID = props.chosenFiat === "AED" ? 2813 : 2781;
-	console.log(fiatID);
 	return (
 		<div className={styles["rate-display"]}>
 			<div className={styles["logo-graph-wrapper"]}>

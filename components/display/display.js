@@ -3,7 +3,8 @@ import Image from "next/image";
 import Rate from "./rate/rate";
 
 async function getCryptoSpreadsAndRates() {
-	const data = await fetch("http://localhost:3000/api/display", {
+	const API_ORIGIN = process.env.API_ORIGIN;
+	const data = await fetch(`${API_ORIGIN}/api/display`, {
 		cache: "no-store",
 	});
 	const dataJSON = await data.json();

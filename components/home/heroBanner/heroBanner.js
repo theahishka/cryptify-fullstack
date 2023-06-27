@@ -2,9 +2,9 @@ import Calculator from "@/components/utils/calculator/calculator";
 import styles from "./heroBanner.module.scss";
 
 async function fetchUSDTRate(crypto) {
-	const origin = process.env.ORIGIN;
+	const API_ORIGIN = process.env.API_ORIGIN;
 	const USDTRateData = await fetch(
-		`${origin}/api/quickCalculator?crypto=${crypto}`,
+		`${API_ORIGIN}/api/quickCalculator?crypto=${crypto}`,
 		{ cache: "no-store" }
 	);
 
@@ -18,14 +18,17 @@ async function fetchUSDTRate(crypto) {
 }
 
 async function fetchSpreadsAndRates() {
-	const origin = process.env.ORIGIN;
+	const API_ORIGIN = process.env.API_ORIGIN;
 	let spreadsAndRates = {
 		cryptoSpreads: {},
 		fiatRates: {},
 	};
-	const data = await fetch(`${origin}/api/quickCalculator/spreadsAndRates`, {
-		cache: "no-store",
-	});
+	const data = await fetch(
+		`${API_ORIGIN}/api/quickCalculator/spreadsAndRates`,
+		{
+			cache: "no-store",
+		}
+	);
 
 	if (!data) {
 		throw new Error("Failed to fetch spreads and rates");

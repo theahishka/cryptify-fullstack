@@ -15,7 +15,6 @@ export default function Rates(props) {
 	}
 
 	let cryptoData = chosenFiat === "AED" ? props.dataAED : props.dataUSD;
-	console.log(cryptoData);
 
 	return (
 		<section className={styles["rates-wrapper"]}>

@@ -19,7 +19,7 @@ export default function Rate(props) {
 				<h3 className={styles["symbol"]}>{symbol}</h3>
 			</div>
 			<div className={styles["we-buy-wrapper"]}>
-				<p className={styles["title"]}>We Buy</p>
+				<h3 className={styles["title"]}>We Buy</h3>
 				<p className={styles["text"]}>
 					{(
 						Math.round(rate * spread.buy * 1000000000) / 1000000000
@@ -27,7 +27,7 @@ export default function Rate(props) {
 				</p>
 			</div>
 			<div className={styles["we-sell-wrapper"]}>
-				<p className={styles["title"]}>We Sell</p>
+				<h3 className={styles["title"]}>We Sell</h3>
 				<p className={styles["text"]}>
 					{(
 						Math.round(rate * spread.sell * 1000000000) / 1000000000
