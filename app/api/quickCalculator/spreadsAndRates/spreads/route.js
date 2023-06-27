@@ -11,6 +11,7 @@ export async function POST(request) {
 	const sell = body.sell;
 
 	try {
+		await prisma.$connect();
 		const newCryptoSpread = await prisma.cryptoSpreads.create({
 			data: {
 				symbol: symbol,
@@ -20,6 +21,7 @@ export async function POST(request) {
 			},
 		});
 		data = newCryptoSpread;
+		await prisma.$disconnect();
 	} catch (e) {
 		console.log(e);
 	}
@@ -36,6 +38,7 @@ export async function PUT(request) {
 	const sell = body.sell;
 
 	try {
+		await prisma.$connect();
 		if (buy && !sell) {
 			const updatedCryptoSpread = await prisma.cryptoSpreads.update({
 				where: {
@@ -70,6 +73,28 @@ export async function PUT(request) {
 			});
 			data = updatedCryptoSpread;
 		}
+		await prisma.$disconnect();
+	} catch (e) {
+		console.log(e);
+	}
+
+	return new Response(JSON.stringify(data));
+}
+
+export async function DELETE(request) {
+	let data;
+	const { searchParams } = new URL(request.url);
+	const symbol = searchParams.get("symbol");
+
+	try {
+		await prisma.$connect();
+		const deletedCryptoSpread = await prisma.cryptoSpreads.delete({
+			where: {
+				symbol: symbol,
+			},
+		});
+		data = deletedCryptoSpread;
+		await prisma.$disconnect();
 	} catch (e) {
 		console.log(e);
 	}

@@ -15,37 +15,14 @@ export default function Swap(props) {
 	const [chosenCrypto, setChosenCrypto] = useState("USDT");
 	const [chosenFiat, setChosenFiat] = useState("AED");
 
-	// Will fetch this from database so that there will be spread control from database.
-	const [cryptoSpread, setCryptoSpread] = useState({
-		USDT: {
-			buy: 0.995,
-			sell: 1.005,
-		},
-		ETH: {
-			buy: 0.99,
-			sell: 1.01,
-		},
-		rest: {
-			buy: 0.985,
-			sell: 1.015,
-		},
-	});
+	const cryptoSpread = props.spreadsAndRates.cryptoSpreads;
+
 	const cryptoSpreadChooser = cryptoSpread[chosenCrypto]
 		? chosenCrypto
 		: "rest";
 
-	const [fiatSpread, setFiatSpread] = useState({
-		AED: {
-			buy: 1,
-			sell: 1,
-		},
-		USD: {
-			buy: 3.65,
-			sell: 3.68,
-		},
-	});
+	const fiatSpread = props.spreadsAndRates.fiatRates;
 
-	// This will be fetched from coinmarketcap
 	const [cryptoRate, setCryptoRate] = useState(null);
 	const USDTRate = props.USDTRate;
 	!cryptoRate && setCryptoRate(USDTRate);
@@ -70,8 +47,9 @@ export default function Swap(props) {
 		} else {
 			setYouGetAmount(
 				(
-					Math.round(Number(youGiveAmount) * cryptoBuyPrice * 1000000000) /
-					1000000000
+					Math.round(
+						Number(youGiveAmount) * cryptoBuyPrice * 1000000000
+					) / 1000000000
 				).toFixed(6)
 			);
 		}
@@ -92,7 +70,8 @@ export default function Swap(props) {
 				setYouGetAmount(
 					(
 						Math.round(
-							(Number(youGiveValue) / cryptoSellPrice) * 1000000000
+							(Number(youGiveValue) / cryptoSellPrice) *
+								1000000000
 						) / 1000000000
 					).toFixed(6)
 				);

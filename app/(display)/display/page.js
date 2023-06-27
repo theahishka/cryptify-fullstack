@@ -1,5 +1,5 @@
-import DisplayPage from "@/components/display/display";
+import Display from "@/components/display/display";
 
-export default function Display() {
-	return <DisplayPage />;
+export default function DisplayPage() {
+	return <Display />;
 }

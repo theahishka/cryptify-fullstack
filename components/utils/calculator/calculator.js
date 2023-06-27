@@ -5,7 +5,6 @@ import rippleEffect from "../rippleEffect/rippleEffect";
 import Swap from "./swap/swap";
 
 export default function Calculator(props) {
-
 	return (
 		<div className={styles["calculator-wrapper"]}>
 			<div className={styles["for-calculator-border"]}>
@@ -15,7 +14,10 @@ export default function Calculator(props) {
 				<p className={styles["description"]}>
 					Easily calculate the rate
 				</p>
-				<Swap USDTRate={props.USDTRate} />
+				<Swap
+					USDTRate={props.USDTRate}
+					spreadsAndRates={props.spreadsAndRates}
+				/>
 				<div className={styles["arrange-wrapper"]}>
 					<a
 						className={styles["arrange"]}

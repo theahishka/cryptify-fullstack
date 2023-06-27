@@ -36,7 +36,6 @@ export async function GET(request) {
 	} catch (e) {
 		console.log(e);
 	}
-	console.log("Server was fired");
 	let suka = { title: "suka" };
 
 	return new Response(JSON.stringify(cryptoRate));

@@ -9,10 +9,12 @@ export async function GET(request) {
 	};
 
 	try {
+		await prisma.$connect();
 		const cryptoSpreads = await prisma.cryptoSpreads.findMany();
 		const fiatRates = await prisma.fiatRates.findMany();
 		data.cryptoSpreads = cryptoSpreads;
 		data.fiatRates = fiatRates;
+		await prisma.$disconnect();
 	} catch (e) {
 		console.log(e);
 	}

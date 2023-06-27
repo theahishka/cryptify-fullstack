@@ -1,7 +1,20 @@
 import styles from "./display.module.scss";
 import Image from "next/image";
+import Rate from "./rate/rate";
 
-export default function DisplayPage() {
+async function getCryptoSpreadsAndRates() {
+	const data = await fetch("http://localhost:3000/api/display", {
+		cache: "no-store",
+	});
+	const dataJSON = await data.json();
+
+	return dataJSON;
+}
+
+export default async function Display() {
+	let cryptoSpreadsAndRates = await getCryptoSpreadsAndRates();
+	const cryptos = ["USDT", "BTC", "ETH"];
+
 	return (
 		<section className={styles["display-wrapper"]}>
 			<div className={styles["logo-wrapper"]}>
@@ -11,6 +24,7 @@ export default function DisplayPage() {
 					width={400}
 					height={400}
 					alt="Cryptify Logo"
+					priority={true}
 				/>
 				<Image
 					className={styles["cryptify-title"]}
@@ -21,66 +35,24 @@ export default function DisplayPage() {
 				/>
 			</div>
 			<div className={styles["rates-wrapper"]}>
-				<div className={styles["rate-wrapper"]}>
-					<div className={styles["logo-symbol-wrapper"]}>
-						<Image
-							className={styles["logo"]}
-							src={`/assets/cryptos/USDT.png`}
-							width={32}
-							height={32}
-							alt={`crypto logo`}
+				{cryptos.map((symbol) => {
+					return (
+						<Rate
+							symbol={symbol}
+							cryptoSpread={
+								cryptoSpreadsAndRates.cryptoSpreads[symbol]
+							}
+							cryptoRate={
+								cryptoSpreadsAndRates.cryptoRates[symbol]
+							}
+							key={`${symbol}`}
 						/>
-						<h3 className={styles["symbol"]}>USDT</h3>
-					</div>
-					<div className={styles["we-buy-wrapper"]}>
-						<p className={styles["title"]}>We Buy</p>
-						<p className={styles["text"]}>3.65</p>
-					</div>
-					<div className={styles["we-sell-wrapper"]}>
-						<p className={styles["title"]}>We Sell</p>
-						<p className={styles["text"]}>3.68</p>
-					</div>
-				</div>
-				<div className={styles["rate-wrapper"]}>
-					<div className={styles["logo-symbol-wrapper"]}>
-						<Image
-							className={styles["logo"]}
-							src={`/assets/cryptos/USDT.png`}
-							width={32}
-							height={32}
-							alt={`crypto logo`}
-						/>
-						<h3 className={styles["symbol"]}>USDT</h3>
-					</div>
-					<div className={styles["we-buy-wrapper"]}>
-						<p className={styles["title"]}>We Buy</p>
-						<p className={styles["text"]}>3.65</p>
-					</div>
-					<div className={styles["we-sell-wrapper"]}>
-						<p className={styles["title"]}>We Sell</p>
-						<p className={styles["text"]}>3.68</p>
-					</div>
-				</div>
-				<div className={styles["rate-wrapper"]}>
-					<div className={styles["logo-symbol-wrapper"]}>
-						<Image
-							className={styles["logo"]}
-							src={`/assets/cryptos/USDT.png`}
-							width={32}
-							height={32}
-							alt={`crypto logo`}
-						/>
-						<h3 className={styles["symbol"]}>USDT</h3>
-					</div>
-					<div className={styles["we-buy-wrapper"]}>
-						<p className={styles["title"]}>We Buy</p>
-						<p className={styles["text"]}>3.65</p>
-					</div>
-					<div className={styles["we-sell-wrapper"]}>
-						<p className={styles["title"]}>We Sell</p>
-						<p className={styles["text"]}>3.68</p>
-					</div>
-				</div>
+					);
+				})}
+			</div>
+			<div className={styles["background-filler-top"]}></div>
+			<div className={styles["background-filler-bottom-wrapper"]}>
+				<div className={styles["background-filler-bottom"]}></div>
 			</div>
 		</section>
 	);

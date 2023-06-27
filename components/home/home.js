@@ -4,10 +4,10 @@ import Rates from "./rates/rates";
 import Why from "./why/why";
 
 async function fetchCryptoRates() {
-	const cryptoRatesData = await fetch(
-		`http://localhost:3000/api/homepageRates`,
-		{ cache: "no-store" }
-	);
+	const origin = process.env.ORIGIN;
+	const cryptoRatesData = await fetch(`${origin}/api/homepageRates`, {
+		cache: "no-store",
+	});
 
 	if (!cryptoRatesData) {
 		throw new Error("Failed to fetch Crypto Rates");
@@ -18,7 +18,7 @@ async function fetchCryptoRates() {
 	return cryptoRatesJSON;
 }
 
-export default async function HomePage() {
+export default async function Home() {
 	const cryptoRates = await fetchCryptoRates();
 	return (
 		<div>

@@ -6,6 +6,8 @@
     justify-content: space-between;
     flex-wrap: wrap;
     background: radial-gradient(55.24% 55.24% at 50% 54.21%, rgba(0, 1, 56, 0) 0%, rgba(0, 1, 56, 0.197917) 47.51%, #050505 100%);
+    position: relative;
+    overflow: hidden;
 
     .logo-wrapper {
         height: 100%;
@@ -15,9 +17,7 @@
         justify-content: center;
         align-items: center;
 
-        .cryptify-logo {
-
-        }
+        .cryptify-logo {}
 
         .cryptify-title {
             margin-top: 10px;
@@ -31,80 +31,57 @@
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
+    }
 
-        .rate-wrapper {
-            background-color: red;
-            padding: 10px;
-            border-radius: 10px;
-            background: linear-gradient(77.28deg, rgba(49, 195, 255, 0.1) 22.81%, rgba(188, 53, 254, 0.1) 89.89%);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            height: 200px;
+    .background-filler-top {
+        width: 515px;
+        height: 515px;
+        background: linear-gradient(90deg, #31C3FF 0%, #BC35FE 100%);
+        position: absolute;
+        top: -20%;
+        left: -20%;
+        border-radius: 50%;
+        opacity: 0.3;
+        filter: blur(200px);
+        transform: translate3d(0, 0, 0);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .background-filler-bottom-wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        overflow-x: hidden;
+        pointer-events: none;
+        transform: translateY(30%);
+
+        .background-filler-bottom {
+            width: 150px;
+            height: 150px;
+            background: #31c5ff87;
+            opacity: 0.8;
+            filter: blur(90px);
+            transform: translate3d(50%, 40%, 0);
+        }
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .display-wrapper {
+        display: block;
+
+        .logo-wrapper {
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        }
 
-            .logo-symbol-wrapper {
-                height: 100%;
-                width: 33%;
-                border-radius: 10px 0px 0px 10px;
-                padding: 24px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-
-                .logo {}
-
-                .symbol {
-                    color: white;
-                    font-size: 24px;
-                    margin-left: 10px;
-                }
-            }
-
-            .we-buy-wrapper {
-                // background-color: rgba(0, 250, 0, 0.1);
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction: column;
-                height: 100%;
-                width: 33%;
-                padding: 24px;
-
-                .title {
-                    color: white;
-                    font-size: 16px;
-
-                }
-
-                .text {
-                    color: white;
-                    font-size: 24px;
-                }
-            }
-
-            .we-sell-wrapper {
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                flex-direction: column;
-                height: 100%;
-                width: 33%;
-                padding: 24px;
-
-                .title {
-                    color: white;
-                    font-size: 16px;
-                }
-
-                .text {
-                    color: white;
-                    font-size: 24px;
-                }
-            }
-
+        .rates-wrapper {
+            width: 100%;
         }
     }
 }

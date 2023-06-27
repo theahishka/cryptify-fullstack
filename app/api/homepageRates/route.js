@@ -59,6 +59,5 @@ export async function GET(request) {
 	}
 	console.log("Server was fired");
 	let suka = { title: "suka" };
-	console.log(data);
 	return new Response(JSON.stringify(data));
 }
