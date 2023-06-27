@@ -39,6 +39,7 @@ export default function PCHeader() {
 						alt="Cryptify Logo"
 						width={36.71}
 						height={33.88}
+						priority={true}
 					></Image>
 					<Image
 						className={styles["cryptify-title"]}
@@ -46,6 +47,7 @@ export default function PCHeader() {
 						alt="Cryptify Title"
 						width={69.18}
 						height={17.65}
+						priority={true}
 					/>
 				</div>
 			</Link>

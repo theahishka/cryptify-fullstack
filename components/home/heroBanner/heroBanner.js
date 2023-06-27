@@ -1,65 +1,7 @@
 import Calculator from "@/components/utils/calculator/calculator";
 import styles from "./heroBanner.module.scss";
 
-async function fetchUSDTRate(crypto) {
-	const API_ORIGIN = process.env.API_ORIGIN;
-	const USDTRateData = await fetch(
-		`${API_ORIGIN}/api/quickCalculator?crypto=${crypto}`,
-		{ cache: "no-store" }
-	);
-
-	if (!USDTRateData) {
-		throw new Error("Failed to fetch Crypto Rates");
-	}
-
-	let USDTRateJSON = await USDTRateData.json();
-
-	return USDTRateJSON;
-}
-
-async function fetchSpreadsAndRates() {
-	const API_ORIGIN = process.env.API_ORIGIN;
-	let spreadsAndRates = {
-		cryptoSpreads: {},
-		fiatRates: {},
-	};
-	const data = await fetch(
-		`${API_ORIGIN}/api/quickCalculator/spreadsAndRates`,
-		{
-			cache: "no-store",
-		}
-	);
-
-	if (!data) {
-		throw new Error("Failed to fetch spreads and rates");
-	}
-
-	let dataJSON = await data.json();
-
-	const cryptoSpreads = dataJSON.cryptoSpreads;
-
-	for (let c = 0; c < cryptoSpreads.length; c++) {
-		spreadsAndRates.cryptoSpreads[cryptoSpreads[c].symbol] = {
-			buy: cryptoSpreads[c].buy,
-			sell: cryptoSpreads[c].sell,
-		};
-	}
-
-	const fiatRates = dataJSON.fiatRates;
-
-	for (let f = 0; f < fiatRates.length; f++) {
-		spreadsAndRates.fiatRates[fiatRates[f].symbol] = {
-			buy: fiatRates[f].buy,
-			sell: fiatRates[f].sell,
-		};
-	}
-
-	return spreadsAndRates;
-}
-
-export default async function HeroBanner() {
-	const USDTRate = await fetchUSDTRate("USDT");
-	const spreadsAndRates = await fetchSpreadsAndRates();
+export default function HeroBanner(props) {
 	return (
 		<section className={styles["hero-calculator"]}>
 			<div className={styles["hero-wrapper"]}>
@@ -98,7 +40,10 @@ export default async function HeroBanner() {
 				</div>
 				<div className={styles["background-filler-1"]}></div>
 			</div>
-			<Calculator USDTRate={USDTRate} spreadsAndRates={spreadsAndRates} />
+			<Calculator
+				USDTRate={props.USDTRate}
+				spreadsAndRates={props.spreadsAndRates}
+			/>
 		</section>
 	);
 }

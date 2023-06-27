@@ -2,18 +2,7 @@ import styles from "./display.module.scss";
 import Image from "next/image";
 import Rate from "./rate/rate";
 
-async function getCryptoSpreadsAndRates() {
-	const API_ORIGIN = process.env.API_ORIGIN;
-	const data = await fetch(`${API_ORIGIN}/api/display`, {
-		cache: "no-store",
-	});
-	const dataJSON = await data.json();
-
-	return dataJSON;
-}
-
-export default async function Display() {
-	let cryptoSpreadsAndRates = await getCryptoSpreadsAndRates();
+export default function Display(props) {
 	const cryptos = ["USDT", "BTC", "ETH"];
 
 	return (
@@ -33,6 +22,7 @@ export default async function Display() {
 					alt="Cryptify Title"
 					width={400}
 					height={102}
+					priority={true}
 				/>
 			</div>
 			<div className={styles["rates-wrapper"]}>
@@ -41,10 +31,12 @@ export default async function Display() {
 						<Rate
 							symbol={symbol}
 							cryptoSpread={
-								cryptoSpreadsAndRates.cryptoSpreads[symbol]
+								props.cryptoSpreadsAndRates.cryptoSpreads[
+									symbol
+								]
 							}
 							cryptoRate={
-								cryptoSpreadsAndRates.cryptoRates[symbol]
+								props.cryptoSpreadsAndRates.cryptoRates[symbol]
 							}
 							key={`${symbol}`}
 						/>
