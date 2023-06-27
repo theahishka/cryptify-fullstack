@@ -72,16 +72,16 @@ async function fetchSpreadsAndRates() {
 }
 
 export default async function HomePage() {
-	const cryptoRates = await fetchCryptoRates();
-	const USDTRate = await fetchUSDTRate("USDT");
-	const spreadsAndRates = await fetchSpreadsAndRates();
+	// const cryptoRates = await fetchCryptoRates();
+	// const USDTRate = await fetchUSDTRate("USDT");
+	// const spreadsAndRates = await fetchSpreadsAndRates();
 
 	return (
 		<main>
 			<Home
-				cryptoRates={cryptoRates}
-				USDTRate={USDTRate}
-				spreadsAndRates={spreadsAndRates}
+				// cryptoRates={cryptoRates}
+				// USDTRate={USDTRate}
+				// spreadsAndRates={spreadsAndRates}
 			/>
 		</main>
 	);

@@ -11,6 +11,7 @@ async function getCryptoSpreadsAndRates() {
 }
 
 export default async function DisplayPage() {
-	let cryptoSpreadsAndRates = await getCryptoSpreadsAndRates();
-	return <Display cryptoSpreadsAndRates={cryptoSpreadsAndRates} />;
+	// let cryptoSpreadsAndRates = await getCryptoSpreadsAndRates();
+	// return <Display cryptoSpreadsAndRates={cryptoSpreadsAndRates} />;
+	return;
 }

@@ -6,14 +6,14 @@ import Why from "./why/why";
 export default function Home(props) {
 	return (
 		<div>
-			<HeroBanner
+			{/* <HeroBanner
 				USDTRate={props.USDTRate}
 				spreadsAndRates={props.spreadsAndRates}
 			/>
 			<Rates
 				dataAED={props.cryptoRates.dataAED}
 				dataUSD={props.cryptoRates.dataUSD}
-			/>
+			/> */}
 			<Why />
 			<ContactUs />
 		</div>
