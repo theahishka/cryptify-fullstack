@@ -42,6 +42,7 @@ async function getCryptoSpreadsAndRates() {
 				headers: {
 					"X-CMC_PRO_API_KEY": "9304a898-9414-4ffd-8f54-d9613edb66f8",
 				},
+				cache: "no-cache",
 			}
 		);
 
