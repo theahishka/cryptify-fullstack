@@ -1,5 +1,7 @@
 import Display from "@/components/display/display";
 
+const axios = require("axios");
+
 const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
@@ -22,21 +24,20 @@ async function getCryptoRates() {
 	const AEDId = 2813;
 
 	try {
-		const cryptoRatesRaw = await fetch(
+		const cryptoRates = await axios.get(
 			`https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=${cryptoIDsString}&convert_id=${AEDId}`,
 			{
 				headers: {
 					"X-CMC_PRO_API_KEY": "9304a898-9414-4ffd-8f54-d9613edb66f8",
 				},
-				cache: "no-store",
 			}
 		);
 
-		const cryptoRates = await cryptoRatesRaw.json();
+		// const cryptoRates = await cryptoRatesRaw.json();
 
 		for (let r = 0; r < cryptoIDs.length; r++) {
-			data[cryptoRates.data[`${cryptoIDs[r].id}`].symbol] =
-				cryptoRates.data[`${cryptoIDs[r].id}`].quote[AEDId].price;
+			data[cryptoRates.data.data[`${cryptoIDs[r].id}`].symbol] =
+				cryptoRates.data.data[`${cryptoIDs[r].id}`].quote[AEDId].price;
 		}
 	} catch (e) {
 		console.log(e);
@@ -74,6 +75,6 @@ export default async function DisplayPage() {
 		cryptoRates: cryptoRates,
 		cryptoSpreads: cryptoSpreads,
 	};
-	
+
 	return <Display cryptoSpreadsAndRates={cryptoSpreadsAndRates} />;
 }
