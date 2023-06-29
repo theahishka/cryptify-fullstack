@@ -39,6 +39,7 @@ async function getCryptoSpreadsAndRates() {
 		const cryptoRatesRaw = await fetch(
 			`https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=${cryptoIDsString}&convert_id=${AEDId}`,
 			{
+				cache: "no-cache",
 				headers: {
 					"X-CMC_PRO_API_KEY": "9304a898-9414-4ffd-8f54-d9613edb66f8",
 				},
