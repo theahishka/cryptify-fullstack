@@ -1,5 +1,5 @@
 import Footer from "@/components/layout/footer/footer";
-import "./globals.scss";
+import "../globals.scss";
 import Script from "next/script";
 import Header from "@/components/layout/header/header";
 
