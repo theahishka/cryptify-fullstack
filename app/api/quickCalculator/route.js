@@ -1,4 +1,5 @@
 const axios = require("axios");
+import { NextResponse } from "next/server";
 
 export async function GET(request) {
 	const { searchParams } = new URL(request.url);
@@ -37,6 +38,6 @@ export async function GET(request) {
 		console.log(e);
 	}
 	let suka = { title: "suka" };
-
-	return new Response(JSON.stringify(cryptoRate));
+	return NextResponse.json(cryptoRate);
+	// return new Response(JSON.stringify(cryptoRate));
 }
