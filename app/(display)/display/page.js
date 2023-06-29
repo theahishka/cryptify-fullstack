@@ -4,11 +4,8 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-async function getCryptoSpreadsAndRates() {
-	let data = {
-		cryptoSpreads: {},
-		cryptoRates: {},
-	};
+async function getCryptoRates() {
+	let data = {};
 
 	const cryptoIDs = [
 		{ id: 825, symbol: "USDT" },
@@ -25,17 +22,6 @@ async function getCryptoSpreadsAndRates() {
 	const AEDId = 2813;
 
 	try {
-		await prisma.$connect();
-		const cryptoSpreads = await prisma.cryptoSpreads.findMany();
-		await prisma.$disconnect();
-
-		for (let c = 0; c < cryptoSpreads.length; c++) {
-			data.cryptoSpreads[cryptoSpreads[c].symbol] = {
-				buy: cryptoSpreads[c].buy,
-				sell: cryptoSpreads[c].sell,
-			};
-		}
-
 		const cryptoRatesRaw = await fetch(
 			`https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=${cryptoIDsString}&convert_id=${AEDId}`,
 			{
@@ -49,7 +35,7 @@ async function getCryptoSpreadsAndRates() {
 		const cryptoRates = await cryptoRatesRaw.json();
 
 		for (let r = 0; r < cryptoIDs.length; r++) {
-			data.cryptoRates[cryptoRates.data[`${cryptoIDs[r].id}`].symbol] =
+			data[cryptoRates.data[`${cryptoIDs[r].id}`].symbol] =
 				cryptoRates.data[`${cryptoIDs[r].id}`].quote[AEDId].price;
 		}
 	} catch (e) {
@@ -59,7 +45,35 @@ async function getCryptoSpreadsAndRates() {
 	return data;
 }
 
+async function getCryptoSpreads() {
+	let data = {};
+
+	try {
+		await prisma.$connect();
+		const cryptoSpreads = await prisma.cryptoSpreads.findMany();
+		await prisma.$disconnect();
+
+		for (let c = 0; c < cryptoSpreads.length; c++) {
+			data[cryptoSpreads[c].symbol] = {
+				buy: cryptoSpreads[c].buy,
+				sell: cryptoSpreads[c].sell,
+			};
+		}
+	} catch (e) {
+		console.log(e);
+	}
+
+	return data;
+}
+
 export default async function DisplayPage() {
-	let cryptoSpreadsAndRates = await getCryptoSpreadsAndRates();
+	const cryptoRates = await getCryptoRates();
+	const cryptoSpreads = await getCryptoSpreads();
+
+	let cryptoSpreadsAndRates = {
+		cryptoRates: cryptoRates,
+		cryptoSpreads: cryptoSpreads,
+	};
+	
 	return <Display cryptoSpreadsAndRates={cryptoSpreadsAndRates} />;
 }
