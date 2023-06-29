@@ -24,12 +24,11 @@ export default function ChooseCrypto(props) {
 	async function fetchCryptoRate(crypto) {
 		const API_ORIGIN = process.env.NEXT_PUBLIC_API_ORIGIN;
 		const data = await fetch(
-			`http://localhost:3000/api/quickCalculator?crypto=${crypto}`,
+			`${API_ORIGIN}/api/quickCalculator?crypto=${crypto}`,
 			{
 				cache: "no-cache",
 			}
 		);
-		console.log(API_ORIGIN);
 
 		if (!data) {
 			throw new Error("Failed to fetch crypto price!");
