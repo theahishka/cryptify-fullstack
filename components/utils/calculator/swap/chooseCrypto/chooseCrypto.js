@@ -22,41 +22,19 @@ export default function ChooseCrypto(props) {
 	const [listOpened, setListOpened] = useState(false);
 
 	async function fetchCryptoRate(crypto) {
-		let cryptoRate;
+		const API_ORIGIN = process.env.API_ORIGIN;
+		const data = await fetch(
+			`http://localhost:3000/api/quickCalculator?crypto=${crypto}`,
+			{
+				cache: "no-cache",
+			}
+		);
 
-		const cryptoIDs = [
-			{ id: 1, symbol: "BTC" },
-			{ id: 1027, symbol: "ETH" },
-			{ id: 1839, symbol: "BNB" },
-			{ id: 52, symbol: "XRP" },
-			{ id: 1958, symbol: "TRX" },
-			{ id: 6636, symbol: "DOT" },
-			{ id: 5426, symbol: "SOL" },
-			{ id: 825, symbol: "USDT" },
-		];
-
-		const cryptoId = cryptoIDs.filter((item) => {
-			return item.symbol === crypto;
-		})[0].id;
-
-		const AEDId = 2813;
-
-		try {
-			const cryptoPriceRaw = await fetch(
-				`https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=${cryptoId}&convert_id=${AEDId}`,
-				{
-					headers: {
-						"X-CMC_PRO_API_KEY":
-							"9304a898-9414-4ffd-8f54-d9613edb66f8",
-					},
-				}
-			);
-			const cryptoPrice = await cryptoPriceRaw.json();
-			cryptoRate = cryptoPrice.data[cryptoId].quote[AEDId].price;
-		} catch (e) {
-			console.log(e);
+		if (!data) {
+			throw new Error("Failed to fetch crypto price!");
 		}
 
+		const cryptoRate = await data.json();
 		return cryptoRate;
 	}
 
