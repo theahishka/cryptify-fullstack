@@ -2,10 +2,7 @@ import Display from "@/components/display/display";
 
 async function getCryptoSpreads() {
 	const cryptoSpreadsRaw = await fetch(
-		"https://www.thecryptify.io/api/cryptify-info/spreads",
-		{
-			cache: "no-store",
-		}
+		"https://www.thecryptify.io/api/cryptify-info/spreads"
 	);
 
 	const cryptoSpreads = await cryptoSpreadsRaw.json();
