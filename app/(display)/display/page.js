@@ -1,34 +1,20 @@
 import Display from "@/components/display/display";
 
-const axios = require("axios");
-
 const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-// export const revalidate = 0;
-
-// export const dynamic = "force-dynamic";
-
 async function getCryptoSpreads() {
-	let data = {};
-
-	try {
-		await prisma.$connect();
-		const cryptoSpreads = await prisma.cryptoSpreads.findMany();
-		await prisma.$disconnect();
-
-		for (let c = 0; c < cryptoSpreads.length; c++) {
-			data[cryptoSpreads[c].symbol] = {
-				buy: cryptoSpreads[c].buy,
-				sell: cryptoSpreads[c].sell,
-			};
+	const cryptoSpreadsRaw = await fetch(
+		"https://www.cryptify.io/api/cryptify-info/spreads",
+		{
+			cache: "no-store",
 		}
-	} catch (e) {
-		console.log(e);
-	}
+	);
 
-	return data;
+	const cryptoSpreads = await cryptoSpreadsRaw.json();
+
+	return cryptoSpreads;
 }
 
 async function getCryptoRates() {
