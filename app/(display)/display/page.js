@@ -1,8 +1,14 @@
 import Display from "@/components/display/display";
 
+// const API_ORIGIN = "http://localhost:3001";
+const API_ORIGIN = "https://www.thecryptify.io";
+
 async function getCryptoSpreads() {
 	const cryptoSpreadsRaw = await fetch(
-		"https://www.thecryptify.io/api/cryptify-info/spreads"
+		`${API_ORIGIN}/api/cryptify-info/display/spreads`,
+		{
+			cache: "no-store",
+		}
 	);
 
 	const cryptoSpreads = await cryptoSpreadsRaw.json();
@@ -11,43 +17,16 @@ async function getCryptoSpreads() {
 }
 
 async function getCryptoRates() {
-	let data = {};
-
-	const cryptoIDs = [
-		{ id: 825, symbol: "USDT" },
-		{ id: 1, symbol: "BTC" },
-		{ id: 1027, symbol: "ETH" },
-	];
-
-	let cryptoIDsString = cryptoIDs
-		.map((crypto) => {
-			return crypto.id;
-		})
-		.join(",");
-
-	const AEDId = 2813;
-
-	try {
-		const cryptoRatesRaw = await fetch(
-			`https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=${cryptoIDsString}&convert_id=${AEDId}`,
-			{
-				headers: {
-					"X-CMC_PRO_API_KEY": "9304a898-9414-4ffd-8f54-d9613edb66f8",
-				},
-			}
-		);
-
-		const cryptoRates = await cryptoRatesRaw.json();
-
-		for (let r = 0; r < cryptoIDs.length; r++) {
-			data[cryptoRates.data[`${cryptoIDs[r].id}`].symbol] =
-				cryptoRates.data[`${cryptoIDs[r].id}`].quote[AEDId].price;
+	const cryptoRatesRaw = await fetch(
+		`${API_ORIGIN}/api/cryptify-info/display/rates`,
+		{
+			cache: "no-store",
 		}
-	} catch (e) {
-		console.log(e);
-	}
+	);
 
-	return data;
+	const cryptoRates = await cryptoRatesRaw.json();
+
+	return cryptoRates;
 }
 
 export default async function DisplayPage() {
