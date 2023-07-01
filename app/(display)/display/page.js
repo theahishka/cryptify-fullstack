@@ -1,7 +1,7 @@
 import Display from "@/components/display/display";
 
-const API_ORIGIN = "http://localhost:3001";
-// const API_ORIGIN = "https://www.thecryptify.io";
+// const API_ORIGIN = "http://localhost:3001";
+const API_ORIGIN = "https://www.thecryptify.io";
 
 async function getCryptoSpreadsAndRates() {
 	const spreadsAndRatesRaw = await fetch(
