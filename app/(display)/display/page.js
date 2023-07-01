@@ -6,7 +6,30 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
-export const revalidate = 0;
+// export const revalidate = 0;
+
+export const dynamic = "force-dynamic";
+
+async function getCryptoSpreads() {
+	let data = {};
+
+	try {
+		await prisma.$connect();
+		const cryptoSpreads = await prisma.cryptoSpreads.findMany();
+		await prisma.$disconnect();
+
+		for (let c = 0; c < cryptoSpreads.length; c++) {
+			data[cryptoSpreads[c].symbol] = {
+				buy: cryptoSpreads[c].buy,
+				sell: cryptoSpreads[c].sell,
+			};
+		}
+	} catch (e) {
+		console.log(e);
+	}
+
+	return data;
+}
 
 async function getCryptoRates() {
 	let data = {};
@@ -49,27 +72,6 @@ async function getCryptoRates() {
 }
 
 export default async function DisplayPage() {
-	async function getCryptoSpreads() {
-		let data = {};
-
-		try {
-			await prisma.$connect();
-			const cryptoSpreads = await prisma.cryptoSpreads.findMany();
-			await prisma.$disconnect();
-
-			for (let c = 0; c < cryptoSpreads.length; c++) {
-				data[cryptoSpreads[c].symbol] = {
-					buy: cryptoSpreads[c].buy,
-					sell: cryptoSpreads[c].sell,
-				};
-			}
-		} catch (e) {
-			console.log(e);
-		}
-
-		return data;
-	}
-
 	const cryptoRates = await getCryptoRates();
 	const cryptoSpreads = await getCryptoSpreads();
 
