@@ -6,6 +6,8 @@ const { PrismaClient } = require("@prisma/client");
 
 const prisma = new PrismaClient();
 
+export const revalidate = 0;
+
 async function getCryptoRates() {
 	let data = {};
 
@@ -24,7 +26,7 @@ async function getCryptoRates() {
 	const AEDId = 2813;
 
 	try {
-		const cryptoRates = await axios.get(
+		const cryptoRatesRaw = await fetch(
 			`https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?id=${cryptoIDsString}&convert_id=${AEDId}`,
 			{
 				headers: {
@@ -33,32 +35,11 @@ async function getCryptoRates() {
 			}
 		);
 
-		// const cryptoRates = await cryptoRatesRaw.json();
+		const cryptoRates = await cryptoRatesRaw.json();
 
 		for (let r = 0; r < cryptoIDs.length; r++) {
-			data[cryptoRates.data.data[`${cryptoIDs[r].id}`].symbol] =
-				cryptoRates.data.data[`${cryptoIDs[r].id}`].quote[AEDId].price;
-		}
-	} catch (e) {
-		console.log(e);
-	}
-
-	return data;
-}
-
-async function getCryptoSpreads() {
-	let data = {};
-
-	try {
-		await prisma.$connect();
-		const cryptoSpreads = await prisma.cryptoSpreads.findMany();
-		await prisma.$disconnect();
-
-		for (let c = 0; c < cryptoSpreads.length; c++) {
-			data[cryptoSpreads[c].symbol] = {
-				buy: cryptoSpreads[c].buy,
-				sell: cryptoSpreads[c].sell,
-			};
+			data[cryptoRates.data[`${cryptoIDs[r].id}`].symbol] =
+				cryptoRates.data[`${cryptoIDs[r].id}`].quote[AEDId].price;
 		}
 	} catch (e) {
 		console.log(e);
@@ -68,6 +49,27 @@ async function getCryptoSpreads() {
 }
 
 export default async function DisplayPage() {
+	async function getCryptoSpreads() {
+		let data = {};
+
+		try {
+			await prisma.$connect();
+			const cryptoSpreads = await prisma.cryptoSpreads.findMany();
+			await prisma.$disconnect();
+
+			for (let c = 0; c < cryptoSpreads.length; c++) {
+				data[cryptoSpreads[c].symbol] = {
+					buy: cryptoSpreads[c].buy,
+					sell: cryptoSpreads[c].sell,
+				};
+			}
+		} catch (e) {
+			console.log(e);
+		}
+
+		return data;
+	}
+
 	const cryptoRates = await getCryptoRates();
 	const cryptoSpreads = await getCryptoSpreads();
 
