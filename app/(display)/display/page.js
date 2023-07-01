@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 async function getCryptoSpreads() {
 	const cryptoSpreadsRaw = await fetch(
-		"https://www.cryptify.io/api/cryptify-info/spreads",
+		"https://www.thecryptify.io/api/cryptify-info/spreads",
 		{
 			cache: "no-store",
 		}
