@@ -1,9 +1,5 @@
 import Display from "@/components/display/display";
 
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
-
 async function getCryptoSpreads() {
 	const cryptoSpreadsRaw = await fetch(
 		"https://www.thecryptify.io/api/cryptify-info/spreads",
